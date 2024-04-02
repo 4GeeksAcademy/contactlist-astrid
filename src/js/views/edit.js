@@ -7,7 +7,7 @@ export const Edit = () => {
     const { id } = useParams();
 
     const [data, setData] = useState({
-        full_name: "", email: "", phone: "", address: "", agenda_slug: " "
+        name: "", email: "", phone: "", address: ""
     });
 
     useEffect(() => {
@@ -46,7 +46,7 @@ export const Edit = () => {
                     <h1 className="title">Edit Contact</h1>
                     <div>
                         <label className="form-label">Full Name</label>
-                        <input type="text" className="form-control" placeholder="Full Name" onChange={info} name="full_name" required value={data.full_name} />
+                        <input type="text" className="form-control" placeholder="Full Name" onChange={info} name="name" required value={data.name} />
                     </div>
                     <div>
                         <label className="form-label">Email</label>
@@ -60,10 +60,7 @@ export const Edit = () => {
                         <label className="form-label">Address</label>
                         <input type="text" className="form-control" placeholder="Enter address" onChange={info} name="address" required value={data.address} />
                     </div>
-                    <div>
-                        <label className="form-label">agenda_slug</label>
-                        <input type="text" className="form-control" placeholder="Agenda Slug" onChange={info} name="agenda_slug" required value={data.agenda_slug} />
-                    </div>
+                    
                     <br />
                     <div className="d-grid gap-2">
                         <button className="btn btn-primary" type="button" onClick={editarContacto}>
@@ -71,7 +68,7 @@ export const Edit = () => {
                         </button>
                     </div>
                     <br />
-                    <Link to="/">
+                    <Link to="/agenda">
                         <span>Volver a contactos</span>
                     </Link>
                 </li>
