@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-// import rigoImage from "../../img/rigo-baby.jpg";
+
 import "../../styles/home.css";
 
 export const Create = () => {
@@ -9,9 +9,10 @@ export const Create = () => {
   const [data, setData] = useState({
     name: "", email: "", phone: "", address: ""
   })
+  console.log(store.slug);
   const Agregar = (event) => {
     event.preventDefault();
-    actions.createContact(data); // Pasa el objeto data a createContact
+    actions.createContact(data, store.slug); // Pasa el objeto data a createContact
   };
 
   const info = (event) => {
@@ -43,11 +44,7 @@ export const Create = () => {
             <input type="text" className="form-control" placeholder="Enter address" onChange={info} name="address" required value={data.address} />
           </div>
 
-          {/* <div>
-            <label className="form-label">agenda_slug</label>
-            <input type="text" className="form-control" placeholder="Agenda Slug" onChange={info} name="slug" required value={data.slug} />
-          </div> */}
-
+         
           <br />
           <div className="d-grid gap-2">
             <button className="btn btn-primary" type="button" onClick={Agregar}>
